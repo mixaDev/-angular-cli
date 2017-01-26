@@ -11,5 +11,4 @@ export class List1Component implements OnInit {
 
   ngOnInit() {
   }
-
 }

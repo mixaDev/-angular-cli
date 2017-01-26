@@ -1,0 +1,4 @@
+<form (submit)="onSubmit(); f.reset()" #f="ngForm">
+  <input type="text" name="title" #title2="ngModel" [(ngModel)]="title" required>
+  <button type="submit" [disabled]="f.form.invalid">Add</button>
+</form>

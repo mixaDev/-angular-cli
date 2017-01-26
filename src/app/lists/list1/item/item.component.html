@@ -1,0 +1,10 @@
+<div
+  class="item"
+  [ngClass]="{closed: todo.closed}"
+  [style.background]="'#ccc'"
+>
+  <i (click)="onToggle()" class="material-icons">{{todo.closed ? 'check_box' : 'check_box_outline_blank'}}</i>
+  <span>{{todo.title}}</span>
+  <i (click)="onDelete()" class="material-icons">delete</i>
+</div>
+
