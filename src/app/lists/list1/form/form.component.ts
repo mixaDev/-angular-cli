@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { List1Service } from '../list1.service';
+import { List1Service } from '../../index';
 
 @Component({
   selector: 'app-form',

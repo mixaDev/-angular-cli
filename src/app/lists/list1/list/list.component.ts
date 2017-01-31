@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Todo } from '../../index';
-import { List1Service } from '../list1.service';
+import { Todo, List1Service } from '../../index';
 
 @Component({
   selector: 'app-list',
@@ -14,17 +13,22 @@ export class ListComponent implements OnInit {
 
   constructor(private list1Service: List1Service) {
     this.todos = [];
+    console.log('constructor')
   }
 
   ngOnInit() {
     this.todos = this.list1Service.getTodos();
+    console.log('ngOnInit')
   }
 
-  delete(todo: Todo){
-    this.list1Service.deleteTodo(todo);
-  }
+  // delete(todo: Todo){
+  //   this.list1Service.deleteTodo(todo);
+  // }
+  delete = this.list1Service.deleteTodo;
 
-  toggle(todo: Todo){
-    this.list1Service.toggleTodo(todo);
-  }
+  // toggle(todo: Todo){
+  //   this.list1Service.toggleTodo(todo);
+  // }
+
+  toggle = this.list1Service.toggleTodo;
 }

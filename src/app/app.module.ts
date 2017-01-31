@@ -6,21 +6,24 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
-import { ListsModule, routs, List1Service } from './lists/index';
+
+import { ListsModule } from './lists/index';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TodosComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ListsModule,
-    RouterModule.forRoot(routs)
+    RouterModule.forRoot([
+      { path: '', redirectTo: 'list1', pathMatch: 'full'},
+    ])
   ],
-  providers: [List1Service],
+  declarations: [
+    AppComponent,
+    TodosComponent
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
