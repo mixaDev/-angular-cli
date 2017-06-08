@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Todo, List1Service } from '../../index';
+import { List1Service } from '../../index';
 
 @Component({
   selector: 'app-list',
@@ -8,17 +8,13 @@ import { Todo, List1Service } from '../../index';
   styleUrls: ['./list.component.less']
 })
 export class ListComponent implements OnInit {
+  data;
 
-  todos: Todo[];
-
-  constructor(private list1Service: List1Service) {
-    this.todos = [];
-    console.log('constructor')
-  }
+  constructor(private list1Service: List1Service) {}
 
   ngOnInit() {
-    this.todos = this.list1Service.getTodos();
-    console.log('ngOnInit')
+    this.data = this.list1Service.data;
+    this.list1Service.getTodos();
   }
 
   // delete(todo: Todo){

@@ -2,26 +2,32 @@ import { Injectable } from '@angular/core';
 
 import { Todo, todos } from '../index';
 
+let todosPromise = Promise.resolve(todos);
+
 @Injectable()
 export class List1Service {
-  todos: Todo[] = todos;
+  data = {
+    todos: []
+  };
 
   constructor() { }
 
-  getTodos(): Todo[]{
-    return this.todos;
+  getTodos(){
+    return todosPromise.then((resolve:Todo[]) => {
+      this.data.todos = resolve;
+    });
   }
 
   createTodo(title: string) {
-    let todo = new Todo(title)
-    this.todos.push(todo)
+    let todo = new Todo(title);
+    this.data.todos.push(todo)
   }
 
   deleteTodo(todo: Todo) {
-    let index = this.todos.indexOf(todo);
+    let index = this.data.todos.indexOf(todo);
 
     if(index > -1) {
-      this.todos.splice(index, 1);
+      this.data.todos.splice(index, 1);
     }
   }
 

@@ -10,8 +10,8 @@ import { Todo } from '../../index';
 export class ItemComponent implements OnInit {
 
   @Input() todo: Todo;
-  @Output() delete= new EventEmitter();
-  @Output() toggle= new EventEmitter();
+  @Output() delete2= new EventEmitter();
+  @Output() toggle2= new EventEmitter();
 
   constructor() {
   }
@@ -20,10 +20,10 @@ export class ItemComponent implements OnInit {
   }
 
   onToggle(){
-    this.toggle.emit(this.todo);
+    this.toggle2.emit(this.todo);
   }
 
   onDelete(){
-    this.delete.emit(this.todo);
+    this.delete2.emit(this.todo);
   }
 }
